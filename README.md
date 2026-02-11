@@ -16,7 +16,8 @@ A **complete, tested, working** guide to build Pwnagotchi on:
 - ⚙️ **Kernel 6.12.62**
 - 📡 **Nexmon monitor mode** (DrSchottky fork)
 - 🧠 **stable-baselines3 2.x** (latest)
-- 🎨 **Sunfounder MS 3.5 IPS display** (with correct drivers!)
+- 🎨 **Sunfounder MS 3.5 IPS display** (with correct drivers!)![20260210_215713](https://github.com/user-attachments/assets/730311d3-7369-4573-8aa5-252c5ebae0f8)
+
 
 **Total build time:** ~2 hours | **Difficulty:** Intermediate | **Success rate:** 100% if you follow the guide!
 
