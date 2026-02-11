@@ -1,0 +1,125 @@
+# Example Pwnagotchi Configuration
+# Copy to /etc/pwnagotchi/config.toml and customize
+#
+# This is a BASIC configuration for USB development mode
+# See docs/CONFIGURATION.md for full options
+
+# ============================================================
+# BASIC SETTINGS - CHANGE THESE!
+# ============================================================
+
+# Name of your Pwnagotchi (will be shown on display and in grid)
+main.name = "pwnagotchi"
+
+# Custom plugins directory
+main.custom_plugins = "/usr/local/share/pwnagotchi/custom-plugins"
+
+# ============================================================
+# PLUGIN CONFIGURATION
+# ============================================================
+
+# Grid plugin - DISABLE during USB development!
+# Enable when running standalone for sharing data with other Pwnagotchis
+main.plugins.grid.enabled = false
+
+# LED plugin - Pi Zero 2 W has different LED path, keep disabled
+main.plugins.led.enabled = false
+
+# Auto-update plugin (default enabled)
+main.plugins.auto-update.enabled = true
+
+# Session stats plugin (default enabled)
+main.plugins.session-stats.enabled = true
+
+# ============================================================
+# PERSONALITY SETTINGS
+# ============================================================
+
+# Deauth attacks - DISABLED for Nexmon stability
+# Keep this false to avoid driver crashes
+personality.deauth = false
+
+# Advertise - disabled for stealth
+personality.advertise = false
+
+# ============================================================
+# UI SETTINGS
+# ============================================================
+
+# Display - disable during USB development, enable for standalone
+ui.display.enabled = false
+
+# Display type (if enabled)
+# ui.display.type = "waveshare_2"  # Adjust for your display
+
+# Web UI - keep enabled for development
+ui.web.enabled = true
+ui.web.address = "0.0.0.0"
+ui.web.port = 8080
+
+# Web UI credentials - CHANGE THESE!
+ui.web.username = "pwnagotchi"
+ui.web.password = "pwnagotchi"  # CHANGE THIS!
+
+# Web UI on boot
+ui.web.on_boot = true
+
+# FPS - 0 means display only updates on major changes
+ui.fps = 0
+
+# ============================================================
+# AI SETTINGS (Optional - defaults work well)
+# ============================================================
+
+# AI learning parameters
+# ai.params.learning_rate = 0.001
+# ai.params.vf_coef = 0.25
+# ai.params.ent_coef = 0.01
+# ai.params.max_grad_norm = 0.5
+# ai.params.verbose = 1
+
+# ============================================================
+# BETTERCAP SETTINGS
+# ============================================================
+
+# Network interface
+bettercap.iface = "wlan0"
+
+# Bettercap will handle interface setup
+bettercap.autostart = true
+
+# ============================================================
+# ADVANCED SETTINGS (Usually don't need to change)
+# ============================================================
+
+# WiFi region (optional, will use system default)
+# main.whitelist = []  # MAC addresses to never attack
+# main.lang = "en"
+# main.confd = "/etc/pwnagotchi/conf.d/"
+
+# ============================================================
+# LOGGING
+# ============================================================
+
+# Main log file
+# main.log.path = "/var/log/pwnagotchi.log"
+# main.log.rotation.enabled = true
+# main.log.rotation.size = 10485760  # 10MB
+
+# ============================================================
+# NOTES FOR USB DEVELOPMENT MODE
+# ============================================================
+# 
+# This config is optimized for development with USB connected:
+# - Display disabled (enable for standalone testing)
+# - Grid disabled (requires bettercap which needs WiFi)
+# - Web UI enabled (access via http://<pi-ip>:8080)
+# - Deauth disabled (Nexmon stability)
+#
+# For standalone operation:
+# 1. Set ui.display.enabled = true
+# 2. Set main.plugins.grid.enabled = true (optional)
+# 3. Disconnect USB
+# 4. Reboot or restart service
+#
+# ============================================================

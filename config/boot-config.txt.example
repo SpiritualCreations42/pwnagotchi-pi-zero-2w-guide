@@ -1,0 +1,84 @@
+# Example /boot/firmware/config.txt additions
+# For Sunfounder MS 3.5 IPS Display and Pwnagotchi
+#
+# IMPORTANT: This is NOT a complete config.txt!
+# Add these lines to your existing /boot/firmware/config.txt
+#
+# ============================================================
+
+# ============================================================
+# USB GADGET CONFIGURATION
+# ============================================================
+
+# Enable USB gadget mode for USB ethernet
+dtoverlay=dwc2
+
+# ============================================================
+# DISPLAY CONFIGURATION
+# ============================================================
+
+# SPI must be enabled for display
+dtparam=spi=on
+
+# Display overlay - ADJUST FOR YOUR DISPLAY!
+# For Sunfounder MS 3.5 IPS:
+# dtoverlay=mhs35ips
+# OR (depending on your driver installation):
+# dtoverlay=mhs35ips,rotate=90,speed=20000000
+
+# For Waveshare displays (example, may not work for Sunfounder!):
+# dtoverlay=waveshare35b-v2,rotate=270,speed=20000000
+
+# CRITICAL: Disable vc4-kms-v3d to prevent conflicts
+# Comment out or remove this line if present:
+# dtoverlay=vc4-kms-v3d
+
+# ============================================================
+# PERFORMANCE TUNING (Optional)
+# ============================================================
+
+# Overclock (optional - increases speed but also heat)
+# Test stability before using!
+# arm_freq=1000
+# over_voltage=2
+
+# GPU memory split (128MB is usually enough)
+gpu_mem=128
+
+# ============================================================
+# WIFI/BLUETOOTH (Usually don't need to change)
+# ============================================================
+
+# WiFi region (set to your country code)
+# country=US
+
+# ============================================================
+# NOTES
+# ============================================================
+#
+# 1. DISPLAY DRIVER IS CRITICAL!
+#    - Sunfounder MS 3.5 IPS needs mhs35ips driver
+#    - Waveshare displays use different overlays
+#    - Wrong driver = wrong colors or no display
+#    - See docs/DISPLAY-SETUP.md for your specific display
+#
+# 2. USB GADGET MODE:
+#    - dtoverlay=dwc2 enables USB ethernet
+#    - Also needs modules-load in cmdline.txt
+#    - See docs/USB-NETWORKING.md
+#
+# 3. ROTATE DISPLAY:
+#    - Add rotate=90, rotate=180, or rotate=270
+#    - Depends on how you mount the display
+#
+# 4. DISPLAY SPEED:
+#    - speed=20000000 (20 MHz) is safe default
+#    - Can try higher for better performance
+#    - Too high may cause artifacts
+#
+# 5. VC4-KMS-V3D CONFLICT:
+#    - This is the Raspberry Pi graphics driver
+#    - Conflicts with SPI displays
+#    - MUST be disabled for display to work
+#
+# ============================================================

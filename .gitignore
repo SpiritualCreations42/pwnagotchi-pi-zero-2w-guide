@@ -1,0 +1,87 @@
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor files
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+*.sublime-*
+
+# Backup files
+*.bak
+*.backup
+*.old
+*.orig
+
+# Image files (too large for git)
+*.img
+*.img.gz
+*.img.xz
+
+# Compiled files
+*.pyc
+__pycache__/
+*.so
+*.o
+*.ko
+
+# Logs
+*.log
+logs/
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# Personal notes
+NOTES.txt
+TODO.txt
+.private/
+
+# SSH keys
+*.pem
+*.key
+id_rsa*
+
+# Environment files
+.env
+.env.local
+
+# Build artifacts
+build/
+dist/
+*.egg-info/
+
+# Node
+node_modules/
+
+# Python virtual environments
+venv/
+.venv/
+env/
+
+# Archives
+*.zip
+*.tar.gz
+*.tar.bz2
+*.7z
+*.rar
+
+# Database files
+*.db
+*.sqlite
+*.sqlite3
+
+# Large binary files
+*.bin
+*.exe
+*.dll
+
+# Test files that shouldn't be committed
+test-output/
+*.test
